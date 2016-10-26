@@ -2,7 +2,7 @@
 import pygame, sys, time ,os
 from pygame.locals import *
 
-class ps3:
+class PS3:
 	joystick=0
 	joystick_count=0
 	numaxes=0
@@ -99,7 +99,12 @@ class ps3:
 			print("Acc_x: {0}, Acc_y: {1}, Acc_z: {2}, ".format(self.acc_x, self.acc_y, self.acc_z))
 
 		def print_pressures(self):
-			pass
+			print("P_Triangle: {0}, P_Square: {1}, P_Rectangle: {2}, P_Circle: {3}, "+
+			"P_Up: {4}, P_Right: {5}, P_Down: {6}, "+
+			"P_L1: {7}, P_L2: {8}, P_R1: {9}, P_R2: {10}".format(
+			self.p_triangle, self.p_square, self.p_rectangle, self.p_circle,
+			self.p_up, self.p_right, self.p_down,
+			self.p_l1, self.p_l2, self.p_r1, self.p_r2))
 
 		def print_analog(self):
 			print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
