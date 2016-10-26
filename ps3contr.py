@@ -32,49 +32,86 @@ class ps3:
 		for i in range(0,self.numaxes):
 			button_analog[i] = self.joystick.get_axis(i)
 
-		self.a_right			=button_analog[9]
-		self.a_up				=button_analog[8]
-		self.a_down				=button_analog[10]
-		self.a_l1				=button_analog[14]
-		self.a_l2				=button_analog[12]
-		self.a_r1				=button_analog[15]
-		self.a_r2				=button_analog[13]
-		self.a_triangle			=button_analog[16]
-		self.a_circle			=button_analog[17]
-		self.a_square			=button_analog[19]
-		self.a_cross			=button_analog[18]
-
-		self.a_joystick_left_x	=button_analog[0]
-		self.a_joystick_left_y	=button_analog[1]
-		self.a_joystick_right_x	=button_analog[2]
-		self.a_joystick_right_y	=button_analog[3]
-		self.acc_x				=button_analog[23]
-		self.acc_y				=button_analog[24]
-		self.acc_z				=button_analog[25]
-
 		for i in range(0,self.numbuttons):
 			button_state[i]=self.joystick.get_button(i)
 
-		self.select			=button_state[0]
-		self.joystick_left	=button_state[1]
-		self.joystick_right	=button_state[2]
-		self.start			=button_state[3]
-		self.up				=button_state[4]
-		self.right			=button_state[5]
-		self.down			=button_state[6]
-		self.left			=button_state[7]
-		self.l2				=button_state[8]
-		self.r2				=button_state[9]
-		self.l1				=button_state[10]
-		self.r1				=button_state[11]
-		self.triangle		=button_state[12]
-		self.circle			=button_state[13]
-		self.cross			=button_state[14]
-		self.square			=button_state[15]
-		self.ps				=button_state[16]
+		self.up	= button_state[4]
+		self.right = button_state[5]
+		self.down = button_state[6]
+		self.left = button_state[7]
+
+		self.p_right = button_analog[9]
+		self.p_up = button_analog[8]
+		self.p_down	= button_analog[10]
+
+		self.acc_x = button_analog[23]
+		self.acc_y = button_analog[24]
+		self.acc_z = button_analog[25]
+
+		self.select	= button_state[0]
+		self.ps	= button_state[16]
+		self.start = button_state[3]
+
+		self.l1	= button_state[10]
+		self.r1	= button_state[11]
+		self.l2	= button_state[8]
+		self.r2	= button_state[9]
+		self.l3	= button_state[1]
+		self.r3	= button_state[2]
+
+		self.p_l1 = button_analog[14]
+		self.p_l2 = button_analog[12]
+		self.p_r1 = button_analog[15]
+		self.p_r2 = button_analog[13]
+
+		self.p_triangle	= button_analog[16]
+		self.p_circle = button_analog[17]
+		self.p_square = button_analog[19]
+		self.p_cross = button_analog[18]
+
+		self.triangle = button_state[12]
+		self.circle = button_state[13]
+		self.cross = button_state[14]
+		self.square	= button_state[15]
+
+		self.a_leftx = button_analog[0]
+		self.a_lefty = button_analog[1]
+		self.a_rightx = button_analog[2]
+		self.a_righty = button_analog[3]
 
 		os.dup2(oldstdout_fno, 1)
 		os.close(oldstdout_fno)
 
 		pygame.event.get()
 		return button_analog
+
+		def print_values(self):
+			print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, "+
+			"Triangle: {4}, Square: {5}, Rectangle: {6}, Circle: {7}, "+
+			"L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, "+
+			"Select: {14}, Start: {15}, PS: {16}, ".format(
+			self.up, self.down, self.left, self.right,
+			self.triangle, self.square, self.rectangle, self.circle,
+			self.l1, self.l2, self.l3, self.r1, self.r2, self.r3,
+			self.select, self.start, self.ps))
+
+		def print_orientation(self):
+			print("Acc_x: {0}, Acc_y: {1}, Acc_z: {2}, ".format(self.acc_x, self.acc_y, self.acc_z))
+
+		def print_pressures(self):
+			pass
+
+		def print_analog(self):
+			print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
+
+		def get_pressures(self):
+			pass
+
+		def get_orientation(self):
+			return {'acc_x': acc_x, 'acc_y': acc_y, 'acc_z': acc_z}
+
+		def get_values(self):
+			pass
+
+		def get_all(self):
+			pass
