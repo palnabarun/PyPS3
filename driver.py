@@ -1,13 +1,14 @@
-from ps3contr import ps3
+from ps3lib import PS3
 
-p = ps3()
+p = PS3()
 
 try:
     while 1:
         p.update()
-        print(p.numaxes)
-        print(p.numbuttons)
-        print(p.a_triangle)
+        p.print_values()
+        p.print_analog()
+        p.print_pressures()
+        p.print_orientation()
 	break
 except KeyboardInterrupt:
     print("Keyboard interrupt")

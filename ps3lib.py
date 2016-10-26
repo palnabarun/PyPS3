@@ -13,11 +13,11 @@ class PS3:
 
 		pygame.init()
 		pygame.joystick.init()
-		ps3.joystick = pygame.joystick.Joystick(0)
-		ps3.joystick.init()
-		ps3.joystick_count = pygame.joystick.get_count()
-		ps3.numaxes = ps3.joystick.get_numaxes()
-		ps3.numbuttons = ps3.joystick.get_numbuttons()
+		PS3.joystick = pygame.joystick.Joystick(0)
+		PS3.joystick.init()
+		PS3.joystick_count = pygame.joystick.get_count()
+		PS3.numaxes = ps3.joystick.get_numaxes()
+		PS3.numbuttons = ps3.joystick.get_numbuttons()
 
 	def update(self):
 		loopQuit = False
