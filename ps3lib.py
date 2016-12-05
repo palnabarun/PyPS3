@@ -109,14 +109,14 @@ class PS3:
 		def print_analog(self):
 			print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
 
-		def get_pressures(self):
+		def get_values(self):
 			pass
 
 		def get_orientation(self):
 			return {'acc_x': acc_x, 'acc_y': acc_y, 'acc_z': acc_z}
 
-		def get_values(self):
+		def get_pressures(self):
 			pass
 
-		def get_all(self):
-			pass
+		def get_analog(self):
+			return {'leftx': a_leftx, 'leftr': a_lefty, 'rightx': a_rightx, 'righty': a_righty}
