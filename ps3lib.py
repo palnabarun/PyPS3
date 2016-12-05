@@ -124,4 +124,4 @@ class PS3:
 			'p_l1': self.p_l1, 'p_l2': self.p_l2, 'p_r1': self.p_r1, 'p_r2': self.p_r2}
 
 		def get_analog(self):
-			return {'leftx': a_leftx, 'leftr': a_lefty, 'rightx': a_rightx, 'righty': a_righty}
+			return {'leftx': self.a_leftx, 'leftr': self.a_lefty, 'rightx': self.a_rightx, 'righty': self.a_righty}
