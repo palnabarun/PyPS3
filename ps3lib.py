@@ -119,7 +119,9 @@ class PS3:
 			return {'acc_x': acc_x, 'acc_y': acc_y, 'acc_z': acc_z}
 
 		def get_pressures(self):
-			pass
+			return {'p_triangle': self.p_triangle, 'p_square': self.p_square, 'p_rectangle': self.p_rectangle, 'p_circle': self.p_circle,
+			'p_up': self.p_up, 'p_right': self.p_right, 'p_down': self.p_down,
+			'p_l1': self.p_l1, 'p_l2': self.p_l2, 'p_r1': self.p_r1, 'p_r2': self.p_r2}
 
 		def get_analog(self):
 			return {'leftx': a_leftx, 'leftr': a_lefty, 'rightx': a_rightx, 'righty': a_righty}
