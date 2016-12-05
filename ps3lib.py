@@ -110,7 +110,10 @@ class PS3:
 			print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
 
 		def get_values(self):
-			pass
+			return {'up': self.up, 'down': self.down, 'left': self.left, 'right': self.right,
+			'triangle': self.triangle, 'square': self.square, 'rectangle': self.rectangle, 'circle': self.circle,
+			'l1': self.l1, 'l2': self.l2, 'l3': self.l3, 'r1': self.r1, 'r2': self.r2, 'r3': self.r3,
+			'select': self.select, 'start': self.start, 'ps': self.ps}
 
 		def get_orientation(self):
 			return {'acc_x': acc_x, 'acc_y': acc_y, 'acc_z': acc_z}
