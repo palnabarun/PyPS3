@@ -125,3 +125,11 @@ class PS3:
 
 		def get_analog(self):
 			return {'leftx': self.a_leftx, 'leftr': self.a_lefty, 'rightx': self.a_rightx, 'righty': self.a_righty}
+
+		def get_all(self):
+			r = dict()
+			r.update(self.get_values())
+			r.update(self.get_orientation())
+			r.update(self.get_pressures())
+			r.update(self.get_analog())
+			return r
