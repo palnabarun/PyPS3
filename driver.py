@@ -9,6 +9,6 @@ try:
         p.print_analog()
         p.print_pressures()
         p.print_orientation()
-	break
+	# break
 except KeyboardInterrupt:
     print("Keyboard interrupt")
