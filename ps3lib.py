@@ -12,6 +12,8 @@ class PS3:
 		sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 
 		pygame.init()
+		os.putenv('DISPLAY', ':0.0')
+		pygame.display.set_mode((1, 1))
 		pygame.joystick.init()
 		PS3.joystick = pygame.joystick.Joystick(0)
 		PS3.joystick.init()
