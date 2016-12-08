@@ -88,10 +88,7 @@ class PS3:
 		return button_analog
 
 	def print_values(self):
-		print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, "+
-		"Triangle: {4}, Square: {5}, Cross: {6}, Circle: {7}, "+
-		"L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, "+
-		"Select: {14}, Start: {15}, PS: {16}, ".format(
+		print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, Triangle: {4}, Square: {5}, Cross: {6}, Circle: {7}, L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, Select: {14}, Start: {15}, PS: {16}, ".format(
 		self.up, self.down, self.left, self.right,
 		self.triangle, self.square, self.cross, self.circle,
 		self.l1, self.l2, self.l3, self.r1, self.r2, self.r3,
@@ -101,9 +98,7 @@ class PS3:
 		print("Acc_x: {0}, Acc_y: {1}, Acc_z: {2}, ".format(self.acc_x, self.acc_y, self.acc_z))
 
 	def print_pressures(self):
-		print("P_Triangle: {0}, P_Square: {1}, P_Cross: {2}, P_Circle: {3}, "+
-		"P_Up: {4}, P_Right: {5}, P_Down: {6}, "+
-		"P_L1: {7}, P_L2: {8}, P_R1: {9}, P_R2: {10}".format(
+		print("P_Triangle: {0}, P_Square: {1}, P_Cross: {2}, P_Circle: {3}, P_Up: {4}, P_Right: {5}, P_Down: {6}, P_L1: {7}, P_L2: {8}, P_R1: {9}, P_R2: {10}".format(
 		self.p_triangle, self.p_square, self.p_cross, self.p_circle,
 		self.p_up, self.p_right, self.p_down,
 		self.p_l1, self.p_l2, self.p_r1, self.p_r2))
