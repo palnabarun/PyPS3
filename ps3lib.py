@@ -87,51 +87,51 @@ class PS3:
 		pygame.event.get()
 		return button_analog
 
-		def print_values(self):
-			print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, "+
-			"Triangle: {4}, Square: {5}, Rectangle: {6}, Circle: {7}, "+
-			"L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, "+
-			"Select: {14}, Start: {15}, PS: {16}, ".format(
-			self.up, self.down, self.left, self.right,
-			self.triangle, self.square, self.rectangle, self.circle,
-			self.l1, self.l2, self.l3, self.r1, self.r2, self.r3,
-			self.select, self.start, self.ps))
+	def print_values(self):
+		print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, "+
+		"Triangle: {4}, Square: {5}, Rectangle: {6}, Circle: {7}, "+
+		"L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, "+
+		"Select: {14}, Start: {15}, PS: {16}, ".format(
+		self.up, self.down, self.left, self.right,
+		self.triangle, self.square, self.rectangle, self.circle,
+		self.l1, self.l2, self.l3, self.r1, self.r2, self.r3,
+		self.select, self.start, self.ps))
 
-		def print_orientation(self):
-			print("Acc_x: {0}, Acc_y: {1}, Acc_z: {2}, ".format(self.acc_x, self.acc_y, self.acc_z))
+	def print_orientation(self):
+		print("Acc_x: {0}, Acc_y: {1}, Acc_z: {2}, ".format(self.acc_x, self.acc_y, self.acc_z))
 
-		def print_pressures(self):
-			print("P_Triangle: {0}, P_Square: {1}, P_Rectangle: {2}, P_Circle: {3}, "+
-			"P_Up: {4}, P_Right: {5}, P_Down: {6}, "+
-			"P_L1: {7}, P_L2: {8}, P_R1: {9}, P_R2: {10}".format(
-			self.p_triangle, self.p_square, self.p_rectangle, self.p_circle,
-			self.p_up, self.p_right, self.p_down,
-			self.p_l1, self.p_l2, self.p_r1, self.p_r2))
+	def print_pressures(self):
+		print("P_Triangle: {0}, P_Square: {1}, P_Rectangle: {2}, P_Circle: {3}, "+
+		"P_Up: {4}, P_Right: {5}, P_Down: {6}, "+
+		"P_L1: {7}, P_L2: {8}, P_R1: {9}, P_R2: {10}".format(
+		self.p_triangle, self.p_square, self.p_rectangle, self.p_circle,
+		self.p_up, self.p_right, self.p_down,
+		self.p_l1, self.p_l2, self.p_r1, self.p_r2))
 
-		def print_analog(self):
-			print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
+	def print_analog(self):
+		print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
 
-		def get_values(self):
-			return {'up': self.up, 'down': self.down, 'left': self.left, 'right': self.right,
-			'triangle': self.triangle, 'square': self.square, 'rectangle': self.rectangle, 'circle': self.circle,
-			'l1': self.l1, 'l2': self.l2, 'l3': self.l3, 'r1': self.r1, 'r2': self.r2, 'r3': self.r3,
-			'select': self.select, 'start': self.start, 'ps': self.ps}
+	def get_values(self):
+		return {'up': self.up, 'down': self.down, 'left': self.left, 'right': self.right,
+		'triangle': self.triangle, 'square': self.square, 'rectangle': self.rectangle, 'circle': self.circle,
+		'l1': self.l1, 'l2': self.l2, 'l3': self.l3, 'r1': self.r1, 'r2': self.r2, 'r3': self.r3,
+		'select': self.select, 'start': self.start, 'ps': self.ps}
 
-		def get_orientation(self):
-			return {'acc_x': acc_x, 'acc_y': acc_y, 'acc_z': acc_z}
+	def get_orientation(self):
+		return {'acc_x': acc_x, 'acc_y': acc_y, 'acc_z': acc_z}
 
-		def get_pressures(self):
-			return {'p_triangle': self.p_triangle, 'p_square': self.p_square, 'p_rectangle': self.p_rectangle, 'p_circle': self.p_circle,
-			'p_up': self.p_up, 'p_right': self.p_right, 'p_down': self.p_down,
-			'p_l1': self.p_l1, 'p_l2': self.p_l2, 'p_r1': self.p_r1, 'p_r2': self.p_r2}
+	def get_pressures(self):
+		return {'p_triangle': self.p_triangle, 'p_square': self.p_square, 'p_rectangle': self.p_rectangle, 'p_circle': self.p_circle,
+		'p_up': self.p_up, 'p_right': self.p_right, 'p_down': self.p_down,
+		'p_l1': self.p_l1, 'p_l2': self.p_l2, 'p_r1': self.p_r1, 'p_r2': self.p_r2}
 
-		def get_analog(self):
-			return {'leftx': self.a_leftx, 'leftr': self.a_lefty, 'rightx': self.a_rightx, 'righty': self.a_righty}
+	def get_analog(self):
+		return {'leftx': self.a_leftx, 'leftr': self.a_lefty, 'rightx': self.a_rightx, 'righty': self.a_righty}
 
-		def get_all(self):
-			r = dict()
-			r.update(self.get_values())
-			r.update(self.get_orientation())
-			r.update(self.get_pressures())
-			r.update(self.get_analog())
-			return r
+	def get_all(self):
+		r = dict()
+		r.update(self.get_values())
+		r.update(self.get_orientation())
+		r.update(self.get_pressures())
+		r.update(self.get_analog())
+		return r
