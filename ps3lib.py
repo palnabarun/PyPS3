@@ -9,7 +9,6 @@ class PS3:
 	numaxes=0
 	numbuttons=0
 
-
 	def __init__(self):
 		sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 
@@ -22,6 +21,7 @@ class PS3:
 		PS3.joystick_count = pygame.joystick.get_count()
 		PS3.numaxes = PS3.joystick.get_numaxes()
 		PS3.numbuttons = PS3.joystick.get_numbuttons()
+		self.update()
 
 	def update(self):
 		loopQuit = False
@@ -94,6 +94,10 @@ class PS3:
 	def calculate_heading(self):
 		theta_l =  math.atan2(self.a_lefty, self.a_leftx)
 		theta_r =  math.atan2(self.a_righty, self.a_rightx)
+		theta_l_d = theta_l * (360 / math.pi)
+		theta_r_d = theta_r * (360 / math.pi)
+		theta_l = 90.0 - theta_l_d
+		thera_r = 90.0 - theta_r_d
 		return [theta_l, theta_r]
 
 	def print_values(self):
