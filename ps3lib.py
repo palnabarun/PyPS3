@@ -83,7 +83,7 @@ class PS3:
 		self.a_rightx = button_analog[2]
 		self.a_righty = button_analog[3]
 
-		self.h_left, self.h_right = calculate_heading(self)
+		self.h_left, self.h_right = self.calculate_heading()
 
 		os.dup2(oldstdout_fno, 1)
 		os.close(oldstdout_fno)
