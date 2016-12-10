@@ -4,12 +4,18 @@ from pygame.locals import *
 import math
 
 class PS3:
+	'''
+	Class to get and process data from Dualshock 3
+	'''
 	joystick=0
 	joystick_count=0
 	numaxes=0
 	numbuttons=0
 
 	def __init__(self):
+		'''
+		Initialization function which sets display mode to non-printing type and sets all variables
+		'''
 		sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 
 		pygame.init()
@@ -24,6 +30,9 @@ class PS3:
 		self.update()
 
 	def update(self):
+		'''
+		Updates the variable values by polling the joystick on request
+		'''
 		loopQuit = False
 		button_state=[0]*self.numbuttons
 		button_analog=[0]*self.numaxes
@@ -92,15 +101,19 @@ class PS3:
 		return button_analog
 
 	def calculate_heading(self):
+		'''
+		Calculates heading angle from axis data
+		'''
 		theta_l =  math.atan2(self.a_lefty, self.a_leftx)
 		theta_r =  math.atan2(self.a_righty, self.a_rightx)
 		theta_l_d = theta_l * (-180 / math.pi)
 		theta_r_d = theta_r * (-180 / math.pi)
-		# theta_l = 90.0 - theta_l_d
-		# thera_r = 90.0 - theta_r_d
 		return [theta_l_d, theta_r_d]
 
 	def print_values(self):
+		'''
+		Prints the variable digital values to console
+		'''
 		print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, Triangle: {4}, Square: {5}, Cross: {6}, Circle: {7}, L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, Select: {14}, Start: {15}, PS: {16}, ".format(
 		self.up, self.down, self.left, self.right,
 		self.triangle, self.square, self.cross, self.circle,
@@ -108,41 +121,77 @@ class PS3:
 		self.select, self.start, self.ps))
 
 	def print_orientation(self):
+		'''
+		Prints the orientation data from accelerometer to console
+		'''
 		print("Acc_x: {0}, Acc_y: {1}, Acc_z: {2}, ".format(self.acc_x, self.acc_y, self.acc_z))
 
 	def print_pressures(self):
+		'''
+		Prints button pressure to console
+		'''
 		print("P_Triangle: {0}, P_Square: {1}, P_Cross: {2}, P_Circle: {3}, P_Up: {4}, P_Right: {5}, P_Down: {6}, P_L1: {7}, P_L2: {8}, P_R1: {9}, P_R2: {10}".format(
 		self.p_triangle, self.p_square, self.p_cross, self.p_circle,
 		self.p_up, self.p_right, self.p_down,
 		self.p_l1, self.p_l2, self.p_r1, self.p_r2))
 
 	def print_analog(self):
+		'''
+		Prints analog joystick data to console
+		'''
 		print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
 
 	def print_heading(self):
+		'''
+		Prints heading angle to console
+		'''
 		print("Left Heading: {0}, Right Heading: {1}".format(self.h_left, self.h_right))
 
 	def get_values(self):
+		'''
+		Returns a dictionary containing the digital button values
+		{'up', 'down', 'left', 'right', 'triangle', 'square', 'cross', 'circle', 'l1', 'l2', 'l3', 'r1', 'r2', 'r3', 'select', 'start', 'ps'}
+		'''
 		return {'up': self.up, 'down': self.down, 'left': self.left, 'right': self.right,
 		'triangle': self.triangle, 'square': self.square, 'cross': self.cross, 'circle': self.circle,
 		'l1': self.l1, 'l2': self.l2, 'l3': self.l3, 'r1': self.r1, 'r2': self.r2, 'r3': self.r3,
 		'select': self.select, 'start': self.start, 'ps': self.ps}
 
 	def get_orientation(self):
+		'''
+		Returns a dictionary containing the accelerometer axis values
+		{'acc_x', 'acc_y', 'acc_z'}
+		'''
 		return {'acc_x': acc_x, 'acc_y': acc_y, 'acc_z': acc_z}
 
 	def get_pressures(self):
+		'''
+		Returns a dictionary containing the button pressure values
+		{'p_triangle', 'p_square', 'p_cross', 'p_circle', 'p_up', 'p_right', 'p_down', 'p_l1', 'p_l2', 'p_r1', 'p_r2'}
+		'''
 		return {'p_triangle': self.p_triangle, 'p_square': self.p_square, 'p_cross': self.p_cross, 'p_circle': self.p_circle,
 		'p_up': self.p_up, 'p_right': self.p_right, 'p_down': self.p_down,
 		'p_l1': self.p_l1, 'p_l2': self.p_l2, 'p_r1': self.p_r1, 'p_r2': self.p_r2}
 
 	def get_analog(self):
+		'''
+		Returns a dictionary containing the analog joystick axis values
+		{'leftx', 'leftr', 'rightx', 'righty'}
+		'''
 		return {'leftx': self.a_leftx, 'leftr': self.a_lefty, 'rightx': self.a_rightx, 'righty': self.a_righty}
 
 	def get_heading(self):
+		'''
+		Returns a dictionary containing the joystick heading angles
+		{'h_left', 'h_right'}
+		'''
 		return {'h_left': self.h_left, 'h_right': self.h_right}
 
 	def get_all(self):
+		'''
+		Returns dictionary with all variable values
+		{'up', 'down', 'left', 'right', 'triangle', 'square', 'cross', 'circle', 'l1', 'l2', 'l3', 'r1', 'r2', 'r3', 'select', 'start', 'ps', 'acc_x', 'acc_y', 'acc_z', 'p_triangle', 'p_square', 'p_cross', 'p_circle', 'p_up', 'p_right', 'p_down', 'p_l1', 'p_l2', 'p_r1', 'p_r2', 'leftx', 'leftr', 'rightx', 'righty', 'h_left', 'h_right'}
+		'''
 		r = dict()
 		r.update(self.get_values())
 		r.update(self.get_orientation())
