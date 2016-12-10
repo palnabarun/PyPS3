@@ -96,9 +96,9 @@ class PS3:
 		theta_r =  math.atan2(self.a_righty, self.a_rightx)
 		theta_l_d = theta_l * (-180 / math.pi)
 		theta_r_d = theta_r * (-180 / math.pi)
-		theta_l = 90.0 - theta_l_d
-		thera_r = 90.0 - theta_r_d
-		return [theta_l, theta_r]
+		# theta_l = 90.0 - theta_l_d
+		# thera_r = 90.0 - theta_r_d
+		return [theta_l_d, theta_r_d]
 
 	def print_values(self):
 		print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, Triangle: {4}, Square: {5}, Cross: {6}, Circle: {7}, L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, Select: {14}, Start: {15}, PS: {16}, ".format(
