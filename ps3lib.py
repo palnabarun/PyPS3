@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 import pygame, sys, time ,os
 from pygame.locals import *
+import math
 
 class PS3:
 	joystick=0
 	joystick_count=0
 	numaxes=0
 	numbuttons=0
+
 
 	def __init__(self):
 		sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
@@ -81,11 +83,18 @@ class PS3:
 		self.a_rightx = button_analog[2]
 		self.a_righty = button_analog[3]
 
+		self.h_left, self.h_right = calculate_heading(self)
+
 		os.dup2(oldstdout_fno, 1)
 		os.close(oldstdout_fno)
 
 		pygame.event.get()
 		return button_analog
+
+	def calculate_heading(self):
+		theta_l =  math.atan2(self.a_lefty, self.a_leftx)
+		theta_r =  math.atan2(self.a_righty, self.a_rightx)
+		return [theta_l, theta_r]
 
 	def print_values(self):
 		print("Up: {0}, Down: {1}, Left: {2}, Right: {3}, Triangle: {4}, Square: {5}, Cross: {6}, Circle: {7}, L1: {8}, L2: {9}, L3: {10}, R1: {11}, R2: {12}, R3: {13}, Select: {14}, Start: {15}, PS: {16}, ".format(
@@ -106,6 +115,9 @@ class PS3:
 	def print_analog(self):
 		print("Left_X: {0}, Left_Y: {1}, Right_X: {2}, Right_Y: {3}".format(self.a_leftx, self.a_lefty, self.a_rightx, self.a_righty))
 
+	def print_heading(self):
+		print("Left Heading: {0}, Right Heading: {1}".format(self.h_left, self.h_right))
+
 	def get_values(self):
 		return {'up': self.up, 'down': self.down, 'left': self.left, 'right': self.right,
 		'triangle': self.triangle, 'square': self.square, 'cross': self.cross, 'circle': self.circle,
@@ -123,10 +135,14 @@ class PS3:
 	def get_analog(self):
 		return {'leftx': self.a_leftx, 'leftr': self.a_lefty, 'rightx': self.a_rightx, 'righty': self.a_righty}
 
+	def get_heading(self):
+		return {'h_left': self.h_left, 'h_right': self.h_right}
+
 	def get_all(self):
 		r = dict()
 		r.update(self.get_values())
 		r.update(self.get_orientation())
 		r.update(self.get_pressures())
 		r.update(self.get_analog())
+		r,update(self.get_heading())
 		return r
