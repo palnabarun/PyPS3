@@ -94,8 +94,8 @@ class PS3:
 	def calculate_heading(self):
 		theta_l =  math.atan2(self.a_lefty, self.a_leftx)
 		theta_r =  math.atan2(self.a_righty, self.a_rightx)
-		theta_l_d = theta_l * (360 / math.pi)
-		theta_r_d = theta_r * (360 / math.pi)
+		theta_l_d = theta_l * (180 / math.pi)
+		theta_r_d = theta_r * (180 / math.pi)
 		# theta_l = 90.0 - theta_l_d
 		# thera_r = 90.0 - theta_r_d
 		return [theta_l_d, theta_r_d]
